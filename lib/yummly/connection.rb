@@ -1,6 +1,8 @@
 # This class handles the HTTP interactions with the Yummly API calls.
 module Yummly
   class Connection
+    
+    require 'faraday'
 
     attr_accessor :connection
 
