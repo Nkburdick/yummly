@@ -30,6 +30,10 @@ module Yummly
       Yummly::Api.search(terms, params)
     end
 
+    def list(term)
+      Yummly::Api.list(term)
+    end
+
     def find(recipe_id)
       Yummly::Api.find(recipe_id)
     end
