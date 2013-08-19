@@ -29,9 +29,16 @@ module Yummly
     # @example
     #   recipes = Yummly::Api.search('Onion soup')
     def self.search(terms, params = {})
+      full_response = params.has_key?(:full_response) ? params.delete(:full_response) : false
       params[:q] = terms unless params.has_key?(:q)
       result = Yummly::Connection.get(:recipes, params)
-      result["matches"].collect { |recipe_json| Yummly::Recipe.new(recipe_json) }
+      
+      if full_response
+        Yummly::Response.new(result)
+      else
+        result["matches"].collect { |recipe_json| Yummly::Recipe.new(recipe_json) }
+      end
+      
     end
 
   end

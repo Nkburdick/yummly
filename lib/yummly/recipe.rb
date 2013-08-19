@@ -91,9 +91,13 @@ module Yummly
     end
 
     def thumbnail
-      if images
+      unless images.empty?
         images.first.small_url
       end
+    end
+
+    def source
+      Yummly::Source.new(response["source"])
     end
 
     private

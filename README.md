@@ -42,6 +42,8 @@ The search command returns an array of Yummly::Recipe objects:
 
     Yummly.search('Onion soup')
 
+Note that this will only provide the recipes from the response.  If you would like to see the entire response, pass :full_response = > true to the search method.  This will return a Yummly::Response object that will give you access to items like the attribution information, search criteria, max Results, etc.  The recipes will also be available like before with the "recipes" method.
+
 #### Find
 
 The find command returns a single Yummly::Recipe object:
